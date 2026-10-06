@@ -27,8 +27,9 @@ Instead of relying directly on a built-in root function, the approximation is ca
 
 To find the n-th root of a value `x`, the program solves:
 
-```text
+```
 y^n = x
+```
 
 The approximation is updated using:
 y(k+1) = ((n - 1) * y(k) + x / y(k)^(n - 1)) / n
