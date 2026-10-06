@@ -1,55 +1,103 @@
-# Newton's Method for Finding the n-th Root
+# Newton's Method for N-th Roots in C
 
-This project implements **Newton's Method** to compute the **n-th root** of a number. Newton's Method is a powerful iterative technique for numerically solving equations of the form \( f(x) = 0 \).
+A C implementation of Newton's method for approximating the n-th root of a number.
 
----
+This project demonstrates iterative numerical computation, floating-point precision, custom mathematical functions, and pointer-based result handling in C.
 
-## 🔧 Functions
+## Overview
 
-### `mocnina` (Power Function)
+Newton's method is an iterative numerical technique used to approximate solutions to equations.
 
-Calculates the value of `base` raised to a given `exponent`.  
-Handles both **positive and negative exponents**.
+In this project, the method is used to calculate the n-th root of a number by repeatedly improving an initial estimate until the result reaches a specified error tolerance.
 
-### `mta_odmocnina` (Root Function)
+Instead of relying directly on a built-in root function, the approximation is calculated iteratively.
 
-Uses Newton’s Method to approximate the **m-th root** of a number `x`.  
-Iteratively improves the estimate until it satisfies a small error tolerance.
+## Features
 
----
-
-## ▶️ How to Run
-
-The code includes a `main` function that demonstrates how to use `mta_odmocnina`:
-
-```c
-double x = 16;
-int n = 2;
-double res;
-
-mta_odmocnina(n, x, &res);
-
-printf("The result of finding the %d-th root of %.2f is: %.4f\n", n, x, res);
-```
-
-Expected output:
-```
-The result of finding the 2-th root of 16.00 is: 4.0000
-```
-
----
-
-## 📥 Inputs and Outputs
-
-- **`x`**: The input number
-- **`m`**: The root degree (e.g., 2 = square root, 3 = cube root)
-- **`res`**: Pointer to the result
-
----
-
-## 💡 Notes
-
+- Computes the n-th root of a number
+- Implements Newton's method from scratch
+- Includes a custom power function
+- Supports positive and negative exponents
+- Uses floating-point tolerance to determine convergence
+- Demonstrates pointer-based output parameters
 - Written in C
-- Handles negative exponents and converges based on a defined `TOL` (tolerance)
-- Useful for learning numerical methods and floating-point precision behavior
+- Makefile-based compilation
 
+## How It Works
+
+To find the n-th root of a value `x`, the program solves:
+
+```text
+y^n = x
+
+The approximation is updated using:
+y(k+1) = ((n - 1) * y(k) + x / y(k)^(n - 1)) / n
+
+Each iteration produces a more accurate estimate.
+The process continues until the result reaches the required precision.
+Example
+For:
+x = 16
+n = 2
+
+the result is approximately:
+4.0
+
+For:
+x = 27
+n = 3
+
+the result is approximately:
+3.0
+
+Project Structure
+.
+├── zadanie01.c
+├── makefile
+├── README.md
+└── .gitignore
+
+- zadanie01.c — implementation of Newton's method and supporting functions
+- makefile — build configuration
+- README.md — project documentation
+- .gitignore — ignored files
+Building the Project
+Clone the repository:
+git clone https://github.com/hannahkuklovska/newtons-method-c.git
+cd newtons-method-c
+
+Compile the project:
+make
+
+Then run the generated executable.
+Concepts Demonstrated
+This project demonstrates:
+- C programming
+- Iterative algorithms
+- Numerical approximation
+- Newton's method
+- Floating-point arithmetic
+- Convergence and error tolerance
+- Functions
+- Pointers
+- Custom mathematical operations
+- Makefiles
+What I Learned
+Through this project, I practiced implementing a mathematical algorithm directly in C.
+I also gained experience with:
+- translating mathematical formulas into code,
+- implementing iterative algorithms,
+- working with floating-point precision,
+- defining convergence conditions,
+- passing results using pointers,
+- and organizing a small C project with a Makefile.
+Possible Improvements
+Future improvements could include:
+- Better input validation
+- Improved handling of edge cases
+- Automated tests
+- Command-line input
+- Comparison with standard library results
+- Support for additional numerical methods
+Author
+Hannah Kuklovska
